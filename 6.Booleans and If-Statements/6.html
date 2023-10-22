@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 6</title>
+  </head>
+  <body>
+    <button
+      onclick="
+    if (onCart >= 10) {
+      alert('The cart is full');
+      console.log(onCart);
+    } else {
+      onCart++;
+      console.log(onCart);
+    } 
+    "
+    >
+      Add to cart
+    </button>
+    <button
+      onclick="
+    if (onCart >= 10) {
+      alert('The cart is full');
+      console.log(onCart);
+    } else {
+      onCart += 2;
+      console.log(onCart);
+    } 
+    "
+    >
+      +2
+    </button>
+    <button
+      onclick="
+    if (onCart >= 10) {
+      alert('The cart is full');
+      console.log(onCart);
+    } else {
+      onCart += 3;
+      console.log(onCart);
+    } 
+    "
+    >
+      +3
+    </button>
+    <button
+      onclick="
+    if (onCart >= 10) {
+      alert('The cart is full');
+      console.log(onCart);
+    } else {
+      onCart += 4;
+      console.log(onCart);
+    } 
+    "
+    >
+      +4
+    </button>
+    <button
+      onclick="
+    if (onCart >= 10) {
+      alert('The cart is full');
+      console.log(onCart);
+    } else {
+      onCart += 5;
+      console.log(onCart);
+    } 
+    "
+    >
+      +5
+    </button>
+    <button
+      onclick="
+    if (onCart <= 0) {
+      alert('The cart is empty!');
+      console.log(onCart);
+    } else {
+      onCart--;
+      console.log(onCart);
+    } 
+    "
+    >
+      Remove from cart
+    </button>
+    <button
+      onclick="
+    if (onCart <= 0) {
+      alert('The cart is empty!');
+      console.log(onCart);
+    } else {
+      onCart -= 2;
+      console.log(onCart);
+    } 
+    "
+    >
+      -2
+    </button>
+    <button
+      onclick="
+    if (onCart <= 0) {
+      alert('The cart is empty!');
+      console.log(onCart);
+    } else {
+      onCart -= 3;
+      console.log(onCart);
+    } 
+    "
+    >
+      -3
+    </button>
+    <script>
+      let onCart = 0;
+
+      const hour = 17;
+      const name = "Zhenou Chen";
+      if (hour >= 6 && hour <= 12) {
+        console.log(`Good morning ${name}`);
+      } else if (hour >= 13 && hour <= 17) {
+        console.log(`Good afternoon ${name}`);
+      } else {
+        console.log(`Good evening ${name}`);
+      }
+
+      const age = 67;
+      const holiday = false;
+      if (!holiday && age >= 0 && age <= 6) {
+        console.log("You have discount");
+      } else if (!holiday && age >= 65) {
+        console.log("You have discount");
+      } else {
+        console.log("You don't have dinscount");
+      }
+
+      const randNum = Math.random();
+      let result;
+      let guess = "Heads";
+      if (randNum < 0.5) {
+        result = "Heads";
+      } else {
+        result = "Tails";
+      }
+      if (guess === result) {
+        console.log("You win!");
+      } else {
+        console.log("You lose!");
+      }
+
+      const randNum2 = Math.random();
+      let result2;
+      let guess2 = "Heads";
+
+      randNum2 < 0.5 ? (result2 = "Heads") : (result = "Tails");
+      guess2 === result2 ? console.log("You win!") : console.log("You lose!");
+    </script>
+  </body>
+</html>
