@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 5</title>
+    <style>
+      .calculator {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      onclick="
+      onCart++;
+      console.log(onCart);
+      "
+    >
+      Add to cart
+    </button>
+    <button
+      onclick="
+      onCart += 2;
+      console.log(onCart);
+      "
+    >
+      +2
+    </button>
+    <button
+      onclick="
+      onCart += 3;
+      console.log(onCart);
+      "
+    >
+      +3
+    </button>
+    <button
+      onclick="
+      onCart += 4;
+      console.log(onCart);
+      "
+    >
+      +4
+    </button>
+    <button
+      onclick="
+      onCart += 5;
+      console.log(onCart);
+      "
+    >
+      +5
+    </button>
+    <button
+      onclick="
+      onCart--;
+      console.log(onCart);
+      "
+    >
+      Remove from cart
+    </button>
+    <button
+      onclick="
+      onCart -= 2;
+      console.log(onCart);
+      "
+    >
+      -2
+    </button>
+    <button
+      onclick="
+      onCart -= 3;
+      console.log(onCart);
+      "
+    >
+      -3
+    </button>
+
+    <div class="calculator">
+      <p>
+        <button
+          onclick="calculation += '1';
+        console.log(calculation);"
+        >
+          1
+        </button>
+        <button
+          onclick="calculation += '2';
+        console.log(calculation);"
+        >
+          2
+        </button>
+        <button
+          onclick="calculation += '3';
+        console.log(calculation);"
+        >
+          3
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculation += '4';
+        console.log(calculation);"
+        >
+          4
+        </button>
+        <button
+          onclick="calculation += '5';
+        console.log(calculation);"
+        >
+          5
+        </button>
+        <button
+          onclick="calculation += '6';
+        console.log(calculation);"
+        >
+          6
+        </button>
+      </p>
+      <p>
+        <button
+          onclick="calculation += '7';
+        console.log(calculation);"
+        >
+          7
+        </button>
+        <button
+          onclick="calculation += '8';
+        console.log(calculation);"
+        >
+          8
+        </button>
+        <button
+          onclick="calculation += '9';
+        console.log(calculation);"
+        >
+          9
+        </button>
+      </p>
+
+      <button
+        onclick="calculation += ' + ';
+      console.log(calculation);"
+      >
+        +
+      </button>
+      <button
+        onclick="calculation = eval(calculation);
+        console.log(calculation);
+        calculation = '';"
+      >
+        =
+      </button>
+    </div>
+    <script>
+      const name = "Zhenou Chen";
+      console.log(`My name is ${name}`);
+
+      const cost = 5 + 2 * 3 + 9;
+      console.log(`Cost of food: $${cost}`);
+
+      const costTax = cost * 0.1;
+      const totalCost = cost + costTax;
+      console.log(`Total cost: $${totalCost}`);
+
+      let onCart = 0;
+      let calculation = "";
+    </script>
+  </body>
+</html>
