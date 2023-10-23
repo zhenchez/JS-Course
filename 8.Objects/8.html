@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 8</title>
+    <style>
+      .heads-tails {
+        margin: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <p>
+        <button onclick="updateCalculation('1')">1</button>
+        <button onclick="updateCalculation('2')">2</button>
+        <button onclick="updateCalculation('3')">3</button>
+      </p>
+      <p>
+        <button onclick="updateCalculation('4')">4</button>
+        <button onclick="updateCalculation('5')">5</button>
+        <button onclick="updateCalculation('6')">6</button>
+      </p>
+      <p>
+        <button onclick="updateCalculation('7')">7</button>
+        <button onclick="updateCalculation('8')">8</button>
+        <button onclick="updateCalculation('9')">9</button>
+      </p>
+
+      <button
+        onclick="calculation += ' + ';
+      console.log(calculation);"
+      >
+        +
+      </button>
+      <button
+        onclick="calculation = eval(calculation);
+        console.log(calculation);
+        localStorage.setItem('calculation', calculation);
+        calculation = '';"
+      >
+        =
+      </button>
+    </div>
+
+    <div class="heads-tails">
+      <button onclick="playHeadsTails('Heads')">Heads</button>
+      <button onclick="playHeadsTails('Tails')">Tails</button>
+    </div>
+
+    <script>
+      const product1 = {
+        name: "basketball",
+        price: 2095,
+        "delivery-time": "3 days",
+      };
+      const product2 = {
+        name: "pants",
+        price: 5095,
+        "delivery-time": "3 days",
+      };
+      console.log(product1);
+      console.log((product1.price += 500));
+      console.log(product1["delivery-time"]);
+
+      function comparePrice(product1, product2) {
+        if (product1.price > product2.price) {
+          return product2;
+        } else {
+          return product1;
+        }
+      }
+      console.log(comparePrice(product1, product2));
+
+      function isSameProduct(product1, product2) {
+        return (
+          product1.name === product2.name && product1.price === product2.price
+        );
+      }
+      console.log(isSameProduct(product1, product2));
+      console.log("Good Morning".toLowerCase());
+      console.log("test".repeat(2));
+
+      let calculation = "";
+      let getCalgulation = localStorage.getItem("calculation") || "";
+      function updateCalculation(number) {
+        calculation += number;
+        localStorage.setItem("calculation", calculation);
+        console.log(calculation);
+      }
+
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      function playHeadsTails(guess) {
+        const randNum = Math.random();
+        let result;
+        if (randNum < 0.5) {
+          result = "Heads";
+        } else {
+          result = "Tails";
+        }
+        if (guess === result) {
+          console.log("You win!");
+          score.wins++;
+        } else {
+          console.log("You lose!");
+          score.losses++;
+        }
+
+        console.log(`Wins: ${score.wins}, losses: ${score.losses}`);
+        localStorage.setItem("score", JSON.stringify(score));
+        /* const randNum2 = Math.random();
+        let result2;
+        let guess2 = "Heads";
+
+        randNum2 < 0.5 ? (result2 = "Heads") : (result = "Tails");
+        guess2 === result2 ? console.log("You win!") : console.log("You lose!"); */
+      }
+    </script>
+  </body>
+</html>
