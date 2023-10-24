@@ -165,17 +165,20 @@
         // Convert back to dollars at the end.
         document.querySelector(".js-total-cost").innerHTML = `$${cost / 100}`;
       }
+
       function onKey(event) {
         if (event.key === "Enter") {
           changeText();
         }
       }
+
       function changeText() {
         const text = `Your name is: ${
           document.querySelector(".text-input").value
         }`;
         document.querySelector(".text").innerHTML = text;
       }
+
       let onCart = 0;
       let cartQuantity = document.querySelector(".cart-quantity");
       cartQuantity.innerHTML = `Cart quantity: ${onCart}`;
@@ -193,6 +196,7 @@
         onCart += quantity;
         cartQuantity.innerHTML = `Cart quantity: ${onCart}`;
       }
+
       let calculation = "";
       let getCalgulation = localStorage.getItem("calculation") || "";
       const calculator = document.querySelector(".calculator-text");

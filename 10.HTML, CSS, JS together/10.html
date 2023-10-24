@@ -7,6 +7,76 @@
     <link rel="stylesheet" href="styles/10.css" />
   </head>
   <body>
-    <script src="scripts/10.js"></script>
+    <div class="c">
+      <button class="test-btt">Test</button>
+      <script src="scripts/10.js"></script>
+    </div>
+    <div class="d">
+      <button class="d-btt d-btt1" onclick="changeDButton('d-btt1')">
+        Gaming
+      </button>
+      <button class="d-btt d-btt2" onclick="changeDButton('d-btt2')">
+        Music
+      </button>
+      <button class="d-btt d-btt3" onclick="changeDButton('d-btt3')">
+        Tech
+      </button>
+    </div>
+    <div class="h">
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 = Free shipping.</p>
+      <input
+        class="cost-input"
+        onkeydown="handleCostKeydown(event);"
+        type="text"
+        placeholder="Cost of order"
+      />
+      <button class="cost-btt" onclick="calculateTotal()">Calculate</button>
+      <p class="result"></p>
+    </div>
+    <div class="i">
+      <p class="calculator-text">0</p>
+      <p>
+        <button class="calc-btt" onclick="updateCalculation('1')">1</button>
+        <button class="calc-btt" onclick="updateCalculation('2')">2</button>
+        <button class="calc-btt" onclick="updateCalculation('3')">3</button>
+        <button class="calc-btt operation-btt" onclick="calculation += ' + ';">
+          +
+        </button>
+      </p>
+      <p>
+        <button class="calc-btt" onclick="updateCalculation('4')">4</button>
+        <button class="calc-btt" onclick="updateCalculation('5')">5</button>
+        <button class="calc-btt" onclick="updateCalculation('6')">6</button>
+        <button class="calc-btt operation-btt" onclick="calculation += ' - ';">
+          -
+        </button>
+      </p>
+      <p>
+        <button class="calc-btt" onclick="updateCalculation('7')">7</button>
+        <button class="calc-btt" onclick="updateCalculation('8')">8</button>
+        <button class="calc-btt" onclick="updateCalculation('9')">9</button>
+        <button class="calc-btt operation-btt" onclick="calculation += ' * ';">
+          *
+        </button>
+      </p>
+      <p>
+        <button class="calc-btt" onclick="updateCalculation('0')">0</button>
+        <button class="calc-btt" onclick="calculation += '.';">.</button>
+        <button
+          class="calc-btt"
+          onclick="calculation = eval(calculation);
+          displayCalculation();
+          localStorage.setItem('calculation', calculation);
+          calculation = '';"
+        >
+          =
+        </button>
+        <button class="calc-btt operation-btt" onclick="calculation += ' / ';">
+          /
+        </button>
+      </p>
+    </div>
   </body>
 </html>
