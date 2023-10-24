@@ -1,0 +1,35 @@
+html {
+  color: white;
+  background-color: rgb(20, 20, 20);
+  font-family: Arial;
+  text-align: center;
+}
+
+.icons {
+  width: 60px;
+}
+.move-btt {
+  background-color: transparent;
+  border: 3px solid white;
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+}
+.move-result {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 60px;
+}
+.move {
+  font-size: 18px;
+  margin: 60px;
+}
+
+.reset-btt {
+  font-size: 16px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+}

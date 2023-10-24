@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM with CSS</title>
+    <link rel="stylesheet" href="styles/dom-with-css.css" />
+  </head>
+
+  <body>
+    <div class="youtube">
+      <p>YouTube Subscribe Button</p>
+      <button onclick="changeSubBtt()" class="sub-btt">Subscribe</button>
+    </div>
+
+    <div class="amazon">
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 = Free shipping.</p>
+      <input
+        class="cost-input"
+        onkeydown="handleCostKeydown(event);"
+        type="text"
+        placeholder="Cost of order"
+      />
+      <button class="cost-btt" onclick="calculateTotal()">Calculate</button>
+      <p class="result"></p>
+    </div>
+    <script src="scripts/dom-with-css.js"></script>
+  </body>
+</html>
