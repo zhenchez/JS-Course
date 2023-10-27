@@ -203,6 +203,11 @@ const todoList = JSON.parse(localStorage.getItem("todoList")) || [
     dueDate: "2023-12-22",
   },
 ];
+const addTodoBtt = document.querySelector(".add-todo-button");
+
+addTodoBtt.addEventListener("click", () => {
+  addTodo();
+});
 
 renderTodoList();
 
@@ -217,18 +222,20 @@ function renderTodoList() {
     const html = `
       <div>${name}</div>
       <div>${dueDate}</div>
-      <button onclick="
-        todoList.splice(${i}, 1);
-        renderTodoList();
-
-        // Whenever we update the todo list, save in localStorage.
-        saveToStorage();
-      " class="delete-todo-button">Delete</button> 
+      <button class="delete-todo-button">Delete</button> 
     `;
     todoListHTML += html;
   }
 
   document.querySelector(".js-todo-list").innerHTML = todoListHTML;
+
+  document.querySelectorAll(".delete-todo-button").forEach((btt, i) => {
+    btt.addEventListener("click", () => {
+      todoList.splice(i, 1);
+      renderTodoList();
+      saveToStorage();
+    });
+  });
 }
 
 function addTodo() {
