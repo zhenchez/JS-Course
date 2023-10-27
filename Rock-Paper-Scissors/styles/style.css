@@ -27,7 +27,8 @@ html {
   margin: 60px;
 }
 
-.reset-btt {
+.reset-btt,
+.auto-play-btt {
   font-size: 16px;
   padding: 10px 16px;
   border: none;

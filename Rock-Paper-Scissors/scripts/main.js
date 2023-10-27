@@ -3,10 +3,17 @@ const score = JSON.parse(localStorage.getItem("score")) || {
   losses: 0,
   ties: 0,
 };
+const rockBtt = document.querySelector(".rock-btt");
+const paperBtt = document.querySelector(".paper-btt");
+const scissorsBtt = document.querySelector(".scissors-btt");
+const resetBtt = document.querySelector(".reset-btt");
+const autoPlayBtt = document.querySelector(".auto-play-btt");
+let intervalId;
+let isAutoPlay = false;
 
 document.querySelector(
   ".score"
-).innerHTML = `Wins: ${score.wins}, Losses${score.losses}, Ties${score.ties}`;
+).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 
 function resetGame() {
   score.wins = 0;
@@ -15,7 +22,7 @@ function resetGame() {
   localStorage.removeItem("score");
   document.querySelector(
     ".score"
-  ).innerHTML = `Wins: ${score.wins}, Losses${score.losses}, Ties${score.ties}`;
+  ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
 function pickCompuChoice() {
@@ -28,6 +35,19 @@ function pickCompuChoice() {
     compuChoice = "scissors";
   }
   return compuChoice;
+}
+
+function autoPlay() {
+  if (!isAutoPlay) {
+    intervalId = setInterval(() => {
+      const playerChoice = pickCompuChoice();
+      playGame(playerChoice);
+    }, 1000);
+    isAutoPlay = true;
+  } else {
+    clearInterval(intervalId);
+    isAutoPlay = false;
+  }
 }
 
 function playGame(playerChoice) {
@@ -74,5 +94,30 @@ function playGame(playerChoice) {
   ).innerHTML = `You <img class="icons" src="./img/${playerChoice}-emoji.png"> <img class="icons" src="./img/${compuChoice}-emoji.png"> computer`;
   document.querySelector(
     ".score"
-  ).innerHTML = `Wins: ${score.wins}, Losses${score.losses}, Ties${score.ties}`;
+  ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
+
+rockBtt.addEventListener("click", () => {
+  playGame("rock");
+});
+paperBtt.addEventListener("click", () => {
+  playGame("paper");
+});
+scissorsBtt.addEventListener("click", () => {
+  playGame("scissors");
+});
+resetBtt.addEventListener("click", () => {
+  resetGame();
+});
+autoPlayBtt.addEventListener("click", () => {
+  autoPlay();
+});
+document.body.addEventListener("keydown", e => {
+  if (e.key === "r") {
+    playGame("rock");
+  } else if (e.key === "p") {
+    playGame("paper");
+  } else if (e.key === "s") {
+    playGame("scissors");
+  }
+});
