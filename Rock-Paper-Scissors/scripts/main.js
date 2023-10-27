@@ -25,6 +25,27 @@ function resetGame() {
   ).innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
+function showResetConfirmation() {
+  document.querySelector(
+    ".reset-confirmation"
+  ).innerHTML = `Are you sure you want to reset the score?
+  <button class="reset-confirm-btt reset-btt-yes">Yes</button>
+  <button class="reset-confirm-btt reset-btt-no">No</button>`;
+
+  document.querySelector(".reset-btt-yes").addEventListener("click", () => {
+    resetGame();
+    hideResetConfirmation();
+  });
+
+  document.querySelector(".reset-btt-no").addEventListener("click", () => {
+    hideResetConfirmation();
+  });
+}
+
+function hideResetConfirmation() {
+  document.querySelector(".reset-confirmation").innerHTML = "";
+}
+
 function pickCompuChoice() {
   let randNum = Math.random();
   if (randNum >= 0 && randNum < 1 / 3) {
@@ -44,9 +65,11 @@ function autoPlay() {
       playGame(playerChoice);
     }, 1000);
     isAutoPlay = true;
+    autoPlayBtt.textContent = "Stop Playing";
   } else {
     clearInterval(intervalId);
     isAutoPlay = false;
+    autoPlayBtt.innerHTML = "Auto Play";
   }
 }
 
@@ -107,7 +130,7 @@ scissorsBtt.addEventListener("click", () => {
   playGame("scissors");
 });
 resetBtt.addEventListener("click", () => {
-  resetGame();
+  showResetConfirmation();
 });
 autoPlayBtt.addEventListener("click", () => {
   autoPlay();
@@ -119,5 +142,9 @@ document.body.addEventListener("keydown", e => {
     playGame("paper");
   } else if (e.key === "s") {
     playGame("scissors");
+  } else if (e.key === "a") {
+    autoPlay();
+  } else if (e.key === "Backspace") {
+    showResetConfirmation();
   }
 });

@@ -28,7 +28,8 @@ html {
 }
 
 .reset-btt,
-.auto-play-btt {
+.auto-play-btt,
+.reset-confirm-btt {
   font-size: 16px;
   padding: 10px 16px;
   border: none;
