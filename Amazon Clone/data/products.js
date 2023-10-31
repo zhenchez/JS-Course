@@ -470,7 +470,7 @@ export const products = [
     keywords: ["sweaters", "hoodies", "apparel", "mens"],
   },
   {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    id: "3d9f4ec7-9a71-421d-8b7e-1472fbfd7aa5",
     image: "images/products/backpack.jpg",
     name: "Black traveler Backpack",
     rating: {
@@ -481,7 +481,7 @@ export const products = [
     keywords: ["travel", "backpack"],
   },
   {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    id: "8c6e24f1-2c6f-4d03-b3d1-9a8364aef9e4",
     image: "images/products/umbrella.jpg",
     name: "Fancy green high quality umbrella",
     rating: {
@@ -492,7 +492,7 @@ export const products = [
     keywords: ["umbrella", "rain", "weather", "unisex"],
   },
   {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    id: "a2f8d6b5-71f4-4e85-9a3d-8e9d32c1aa6c",
     image: "images/products/4-piece-watch.webp",
     name: "4pcs Quartz Watches Bracelet",
     rating: {
@@ -503,7 +503,7 @@ export const products = [
     keywords: ["watch", "bracelet", "quartz", "mens"],
   },
   {
-    id: "bc2847e9-5323-403f-b7cf-57fde044a955",
+    id: "17b0fe52-9dd3-4925-b1f7-8d4b8f7b2a85",
     image: "images/products/2023-New-Women-s-Wool-Slippers.webp",
     name: "2023 New Women's Wool Slippers Warm Platform",
     rating: {
