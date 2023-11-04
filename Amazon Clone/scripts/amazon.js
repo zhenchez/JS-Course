@@ -82,7 +82,7 @@ function addedToCartMessage(productId) {
 }
 
 document.querySelectorAll(".add-to-cart-button").forEach(button => {
-  button.addEventListener("click", e => {
+  button.addEventListener("click", () => {
     const { productId } = button.dataset;
     const quantityDOM = document.querySelector(
       `.quantity-selector-${productId}`
