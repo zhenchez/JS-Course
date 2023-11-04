@@ -10,8 +10,10 @@ import { formatCurrency } from "../utils/money.js";
 import {
   deliveryOptions,
   getDeliveryOption,
+  calculateDeliveryDate,
 } from "../../data/deliveryOptions.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
+import { renderCheckoutHeader } from "./checkoutHeader.js";
 
 export function renderHTML() {
   let cartSummaryHTML = "";
@@ -20,9 +22,7 @@ export function renderHTML() {
     let html = "";
 
     deliveryOptions.forEach(deliveryOption => {
-      const today = dayjs();
-      const deliveryDate = today.add(deliveryOption.deliveryDays, "day");
-      const dateString = deliveryDate.format("dddd, MMMM D");
+      const dateString = calculateDeliveryDate(deliveryOption);
       const priceString =
         deliveryOption.priceCents === 0
           ? "FREE"
@@ -122,8 +122,8 @@ export function renderHTML() {
     link.addEventListener("click", () => {
       const { productId } = link.dataset;
       removeFromCart(productId);
-      document.querySelector(`.js-cart-item-container-${productId}`).remove();
-      calculateCartQuantity("cart");
+      renderCheckoutHeader();
+      renderHTML();
       renderPaymentSummary();
     });
   });
@@ -156,7 +156,8 @@ export function renderHTML() {
 
       quantityLabel.innerHTML = value;
       updateQuantity(productId, value);
-      calculateCartQuantity("cart");
+      renderCheckoutHeader();
+      renderHTML();
       renderPaymentSummary();
     });
   });
@@ -170,5 +171,5 @@ export function renderHTML() {
     });
   });
 
-  calculateCartQuantity("cart");
+  renderCheckoutHeader();
 }
